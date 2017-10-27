@@ -1,0 +1,132 @@
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+
+    Button bt_aceptar;
+    EditText et_usuario,et_conra;
+    String usuario,password;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        super.setContentView(R.layout.activity_main);
+        et_conra=(EditText)findViewById(R.id.et_contra);
+        et_usuario=(EditText)findViewById(R.id.et_usuario);
+        bt_aceptar=(Button)findViewById(R.id.bt_aceptar);
+        bt_aceptar.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        usuario=et_usuario.getText().toString();
+        password=et_conra.getText().toString();
+        if(v.getId()==R.id.bt_aceptar){
+            if(usuario.equals("luis")&&password.equals("estrada")){
+
+                    Toast toast1 =
+                            Toast.makeText(getApplicationContext(),
+                                    "CORRECTO", Toast.LENGTH_SHORT);
+
+                    toast1.show();
+
+
+            }
+
+
+          else{
+
+                                  Toast toast1 =
+                            Toast.makeText(getApplicationContext(),
+                                    "INCORRECTO", Toast.LENGTH_SHORT);
+
+                    toast1.show();
+                }
+
+            }
+
+
+        }
+
+
+    }
+
+****************************************************************
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.alumno.validapassword.MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ly_usuario"
+        android:orientation="horizontal"
+        >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="USUARIO" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/et_usuario"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ly_contra"
+        android:orientation="horizontal"
+        android:layout_below="@+id/ly_usuario"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONTRASEÑA"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_contra"
+            android:text=""
+            />
+
+
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ly_boton"
+        android:orientation="horizontal"
+        android:layout_below="@+id/ly_contra"
+        >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_aceptar"
+        android:text="ACEPTAR"
+        />
+
+
+        </LinearLayout>
+
+</RelativeLayout>
